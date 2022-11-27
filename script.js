@@ -48,10 +48,20 @@ function formatSpace1(response) {
 function formatSpace(response) {
 	let output = '';
 	response.forEach((val, index, arr) => {
-		output = output + JSON.stringify(val, null, 2) + "<br />";
+		output = output + JSON.stringify(val, null, "<br />") + "<br />";
 	});
 	return output;
 }
+
+function formatSpace4(response) {
+	let output = '<pre>';
+	response.forEach((val, index, arr) => {
+		output = output + JSON.stringify(val, null, "\t") + "<br />";
+	});
+	output += '</pre>';
+	return output;
+}
+
 
 export function testSpaceApi(idUpdate) {
 	const options = {
@@ -66,7 +76,7 @@ export function testSpaceApi(idUpdate) {
 		.then(response => response.json())
 		.then(response => {
 			console.log(response);
-			document.querySelector('#' + idUpdate).innerHTML = formatSpace(response); // JSON.stringify(response, null, 2);
+			document.querySelector('#' + idUpdate).innerHTML = formatSpace4(response); // JSON.stringify(response, null, 2);
 		})
 		.catch(err => console.error(err));
 }
