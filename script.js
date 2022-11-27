@@ -95,7 +95,11 @@ const options = {
 
 fetch('https://webcamstravel.p.rapidapi.com/webcams/list/country=IE?show=webcams%3Aimage%2Clocation&lang=en', options)
 	.then(response => response.json())
-	.then(response => console.log(response))
+	.then(response => {
+		console.log(response);
+		document.querySelector('#' + idUpdate).innerHTML =
+	'<pre>' + JSON.stringify(response, null, "\t") + '</pre>';
+	})
 	.catch(err => console.error(err));
 } 
 
