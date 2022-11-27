@@ -21,7 +21,7 @@
 		<div class="grid-item item5 grid-container-btns">
 			<div class="btn btn1" id="id_btn1">1-test</div>
 			<div class="btn btn2" id="id_btn2">2-covid</div>
-			<div class="btn btn3" id="id_btn3">3-clim</div>
+			<div class="btn btn3" id="id_btn3">3-climate</div>
 			<div class="btn btn4" id="id_btn4">4-space</div>
 			<div class="btn btn5" id="id_btn5">5-webcam-ie</div>
 			<div class="btn btn6" id="id_btn6">6-youtube-meta</div>
@@ -32,9 +32,12 @@
 		</div>
 	</div>
 	<script type="module" defer>
-            import {outputConsole, testCovidApi, testClimateApi, testSpaceApi, testWebcamIE, testYoutubeMeta} from './script.js';
+            import {outputConsole, testCovidApi, testEnvNewsLive, testClimateApi, testSpaceApi, testWebcamIE, testYoutubeMeta} from './script.js';
             outputConsole('after import');
-            function space(){
+            function climate(){
+								testEnvNewsLive('id_item6');
+						}
+						function space(){
                 testSpaceApi('id_item6');
             }
 					  function covid(){
@@ -48,7 +51,7 @@
 						}
             document.querySelector('#id_btn1').addEventListener("click", ()=>{outputConsole("btn1 called")});
             document.querySelector('#id_btn2').addEventListener("click", ()=>{covid();});
-            document.querySelector('#id_btn3').addEventListener("click", ()=>{testClimateApi('id_item6');});
+            document.querySelector('#id_btn3').addEventListener("click", ()=>{climate('id_item6');});
             document.querySelector('#id_btn4').addEventListener("click", ()=>{space();});
 		document.querySelector('#id_btn5').addEventListener("click", ()=>{webcam();});
 		document.querySelector('#id_btn6').addEventListener("click", ()=>{youtube();});

@@ -40,6 +40,25 @@ export function testClimateApi(idUpdate) {
 
 }
 
+export function testEnvNewsLive(idUpdate) {
+	const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'a700362213msh5488758fad7aa33p185971jsn393a5db8dfbd',
+		'X-RapidAPI-Host': 'environment-news-live.p.rapidapi.com'
+	}
+};
+
+fetch('https://environment-news-live.p.rapidapi.com/news/timesofindia', options)
+	.then(response => response.json())
+	.then(response => {
+		console.log(response);
+		document.querySelector('#' + idUpdate).innerHTML =
+	'<pre>' + JSON.stringify(response, null, "\t") + '</pre>';
+	})
+	.catch(err => console.error(err));
+}
+
 function formatSpace0(response) {
 	return JSON.stringify(response, null, 2);
 }
