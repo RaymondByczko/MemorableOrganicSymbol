@@ -53,7 +53,7 @@ function formatSpace(response) {
 	return output;
 }
 
-function formatSpace4(response) {
+function formatPreTab(response) {
 	let output = '<pre>';
 	response.forEach((val, index, arr) => {
 		output = output + JSON.stringify(val, null, "\t") + "<br />";
@@ -76,7 +76,7 @@ export function testSpaceApi(idUpdate) {
 		.then(response => response.json())
 		.then(response => {
 			console.log(response);
-			document.querySelector('#' + idUpdate).innerHTML = formatSpace4(response); // JSON.stringify(response, null, 2);
+			document.querySelector('#' + idUpdate).innerHTML = formatPreTab(response); // JSON.stringify(response, null, 2);
 		})
 		.catch(err => console.error(err));
 }
