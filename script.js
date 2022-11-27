@@ -84,3 +84,18 @@ export function testSpaceApi(idUpdate) {
 		.catch(err => console.error(err));
 }
 
+export function testWebcamIE(idUpdate) {
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'a700362213msh5488758fad7aa33p185971jsn393a5db8dfbd',
+		'X-RapidAPI-Host': 'webcamstravel.p.rapidapi.com'
+	}
+};
+
+fetch('https://webcamstravel.p.rapidapi.com/webcams/list/country=IE?show=webcams%3Aimage%2Clocation&lang=en', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+} 
+
