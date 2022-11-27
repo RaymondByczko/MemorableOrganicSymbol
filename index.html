@@ -26,7 +26,7 @@
 			<div class="btn btn5">5-nused</div>
 			<div class="btn btn6">6-nused</div>
 		</div>
-		<div class="grid-item item6">Item6
+		<div class="grid-item item6" id="id_item6">Item6
 		</div>
 		<div class="grid-item item7">Item7
 		</div>
@@ -35,13 +35,12 @@
             import {outputConsole, testCovidApi, testClimateApi, testSpaceApi} from './script.js';
             outputConsole('after import');
             function space(){
-                testSpaceApi();
+                testSpaceApi('id_item6');
             }
             document.querySelector('#id_btn1').addEventListener("click", ()=>{outputConsole("btn1 called")});
             document.querySelector('#id_btn2').addEventListener("click", ()=>{testCovidApi();});
-            document.querySelector('#id_btn3').addEventListener("click", ()=>{testClimateApi();});
-            document.querySelector('#id_btn4').addEventListener("click", ()=>{testSpaceApi();});
-        </script>
+            document.querySelector('#id_btn3').addEventListener("click", ()=>{testClimateApi('id_item6');});
+            document.querySelector('#id_btn4').addEventListener("click", ()=>{space();});
 	</script>
 
 	<!--
