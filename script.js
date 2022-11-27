@@ -3,7 +3,7 @@ export function outputConsole(msg) {
 	console.log(msg);
 }
 
-export function testCovidApi() {
+export function testCovidApi(idUpdate) {
 	const options = {
 		method: 'GET',
 		headers: {
@@ -14,7 +14,10 @@ export function testCovidApi() {
 
 	fetch('https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/total?country=Canada', options)
 		.then(response => response.json())
-		.then(response => console.log(response))
+		.then(response => {
+			console.log(response);
+			document.querySelector('#' + idUpdate).innerHTML = '<pre>' + JSON.stringify(response, null, "\t") + '</pre>'; //formatPreTab(response);
+		})
 		.catch(err => console.error(err));
 }
 
