@@ -103,3 +103,21 @@ fetch('https://webcamstravel.p.rapidapi.com/webcams/list/country=IE?show=webcams
 	.catch(err => console.error(err));
 } 
 
+export function testYoutubeMeta(idUpdate) {
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'a700362213msh5488758fad7aa33p185971jsn393a5db8dfbd',
+		'X-RapidAPI-Host': 'youtube-to-mp34.p.rapidapi.com'
+	}
+};
+
+fetch('https://youtube-to-mp34.p.rapidapi.com/metadata/P0PBuWFeTY4', options)
+	.then(response => response.json())
+	.then(response => {
+		console.log(response);
+		document.querySelector('#' + idUpdate).innerHTML =
+	'<pre>' + JSON.stringify(response, null, "\t") + '</pre>';
+	})
+	.catch(err => console.error(err));	
+}
